@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "494265297380",
+    "project_id": "buttonmenu-475f5",
+    "storage_bucket": "buttonmenu-475f5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:494265297380:android:55cd03e08f70124c5abff1",
+        "android_client_info": {
+          "package_name": "com.homework.buttonmenu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAn60-W8w6a616Bp2eZlR_r2tcl6tdDX0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
