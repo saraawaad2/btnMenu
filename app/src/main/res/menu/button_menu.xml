@@ -9,4 +9,8 @@
     <item android:title="LogIn"
         android:id="@+id/menu_login"
         android:icon="@drawable/ic_login"/>
+    <item android:title="SignUp"
+        android:id="@+id/menu_Signup"
+        android:icon="@drawable/sign_up"
+        />
 </menu>

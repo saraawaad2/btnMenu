@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginFrag extends Fragment {
 TextInputEditText txtEmail,txtPassword;
@@ -65,8 +66,19 @@ FirebaseAuth mAuth;
     }
 
     private void updateUI() {
+        txtEmail.setText(null);
+        txtPassword.setText(null);
+        MainActivity.isLogedin=true;
         MainActivity.homeFrame.setVisibility(View.VISIBLE);
         MainActivity.dashFrame.setVisibility(View.INVISIBLE);
         MainActivity.loginFrame.setVisibility(View.INVISIBLE);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        FirebaseUser currentUser= mAuth.getCurrentUser();
+        if(currentUser!=null)
+            updateUI();
     }
 }

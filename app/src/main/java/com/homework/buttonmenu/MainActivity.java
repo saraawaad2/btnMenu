@@ -16,8 +16,10 @@ public class MainActivity extends AppCompatActivity {
     private homeFrag homeFrag;
     private DashFrag dashFrag;
     private LoginFrag loginFrag;
-    public static FrameLayout homeFrame,dashFrame,loginFrame;
+    private SignUp signUpFrag;
+    public static FrameLayout homeFrame,dashFrame,loginFrame,signUpFrame;
     private BottomNavigationView bottomNavigationView;
+    public static boolean isLogedin=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         homeFrame=findViewById(R.id.home_frame);
         dashFrame=findViewById(R.id.dash_frame);
         loginFrame=findViewById(R.id.login_frame);
+        signUpFrame=findViewById(R.id.Signup_frame);
         bottomNavigationView=findViewById(R.id.buttom_navigation);
         begin();
     }
@@ -34,29 +37,40 @@ public class MainActivity extends AppCompatActivity {
         homeFrag=new homeFrag();
         dashFrag=new DashFrag();
         loginFrag=new LoginFrag();
+        signUpFrag=new SignUp();
         getSupportFragmentManager().beginTransaction().replace(R.id.home_frame,homeFrag).commit();
         getSupportFragmentManager().beginTransaction().replace(R.id.dash_frame,dashFrag).commit();
         getSupportFragmentManager().beginTransaction().replace(R.id.login_frame,loginFrag).commit();
-        //hiding dash and login Fragments
+        getSupportFragmentManager().beginTransaction().replace(R.id.Signup_frame,signUpFrag).commit();
         dashFrame.setVisibility(View.INVISIBLE);
-        loginFrame.setVisibility(View.INVISIBLE);
+        homeFrame.setVisibility(View.INVISIBLE);
+        signUpFrame.setVisibility(View.INVISIBLE);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                if(item.getItemId()==R.id.menu_home){
+                if(item.getItemId()==R.id.menu_home&&isLogedin){
                     homeFrame.setVisibility(View.VISIBLE);
                     dashFrame.setVisibility(View.INVISIBLE);
                     loginFrame.setVisibility(View.INVISIBLE);
+                    signUpFrame.setVisibility(View.INVISIBLE);
                 }
-                if(item.getItemId()==R.id.menu_dashboard){
+                if(item.getItemId()==R.id.menu_dashboard&&isLogedin){
                     homeFrame.setVisibility(View.INVISIBLE);
                     dashFrame.setVisibility(View.VISIBLE);
                     loginFrame.setVisibility(View.INVISIBLE);
+                    signUpFrame.setVisibility(View.INVISIBLE);
                 }
-                if(item.getItemId()==R.id.menu_login){
+                if(item.getItemId()==R.id.menu_login&&!isLogedin){
                     homeFrame.setVisibility(View.INVISIBLE);
                     dashFrame.setVisibility(View.INVISIBLE);
                     loginFrame.setVisibility(View.VISIBLE);
+                    signUpFrame.setVisibility(View.INVISIBLE);
+                }
+                if(item.getItemId()==R.id.menu_Signup&&!isLogedin){
+                    homeFrame.setVisibility(View.INVISIBLE);
+                    dashFrame.setVisibility(View.INVISIBLE);
+                    loginFrame.setVisibility(View.INVISIBLE);
+                    signUpFrame.setVisibility(View.VISIBLE);
                 }
                 return true;
             }
