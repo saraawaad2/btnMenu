@@ -201,4 +201,24 @@ public class SignUp extends Fragment {
         MainActivity.dashFrame.setVisibility(View.INVISIBLE);
         MainActivity.signUpFrame.setVisibility(View.INVISIBLE);
     }
+    public static boolean checkPass(String password) {
+        if (password.length() <= 6) {
+            return false;
+        }
+        boolean hasLetter = false;
+        boolean hasDigit = false;
+
+        for (char ch : password.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                hasLetter = true;
+            } else if (Character.isDigit(ch)) {
+                hasDigit = true;
+            }
+            if (hasLetter && hasDigit) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

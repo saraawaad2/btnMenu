@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".DashFrag">
+    tools:context=".fragre">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:textSize="50sp"
             android:textStyle="bold"
-            android:text="Dash Fragment"
+            android:text="Saved"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"/>
     </LinearLayout>

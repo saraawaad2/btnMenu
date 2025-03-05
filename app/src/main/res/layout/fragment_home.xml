@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:textSize="50sp"
         android:textStyle="bold"
-        android:text="Home Fragment"
+        android:text="Recipes"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"/>
 </LinearLayout>

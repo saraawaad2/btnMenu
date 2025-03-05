@@ -14,7 +14,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends AppCompatActivity {
     private homeFrag homeFrag;
-    private DashFrag dashFrag;
+    private fragre dashFrag;
     private LoginFrag loginFrag;
     private SignUp signUpFrag;
     public static FrameLayout homeFrame,dashFrame,loginFrame,signUpFrame;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void begin() {
         homeFrag=new homeFrag();
-        dashFrag=new DashFrag();
+        dashFrag=new fragre();
         loginFrag=new LoginFrag();
         signUpFrag=new SignUp();
         getSupportFragmentManager().beginTransaction().replace(R.id.home_frame,homeFrag).commit();
@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         dashFrame.setVisibility(View.INVISIBLE);
         homeFrame.setVisibility(View.INVISIBLE);
         signUpFrame.setVisibility(View.INVISIBLE);
+        loginFrame.setVisibility(View.VISIBLE);
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
